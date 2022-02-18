@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:white">
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!-------------------------------------------Asset Management------------------------------------------->
+    <a-assets timeout="50000">
+
+      <a-asset-item id="cat" src="./models/cat/cat.gltf"></a-asset-item>
+
+      <img id="bg" src="./images/Sky.jpg">
+
+    </a-assets>
+
+    <a-sky src="#bg"></a-sky>
+
+    <!-------------------------------------Lights in the scene----------------------------------------------->
+
+    <!--Ambient-->
+    <a-entity light="type: ambient; intensity: 0.05;">
+    </a-entity>
+
+
+    <!--Point-->
+     <a-entity light="type: point; castShadow: true; color: #e6ca14; intensity:2.55" position="3 8.394 -20">
+     </a-entity>
+
+    <!-------------------------------------Plane----------------------------------------------->
+
+    <a-circle position="-0.4 -1.9 -25" rotation="-90 0 0" radius="100" shadow="receive: true" visible="true"
+      src="./images/grass.jpg">
+    </a-circle>
+  
+
+    <!--------------------------------------GLTF Models----------------------------------------------------------->
+
+    <!--Sun-->
+    <a-sphere position="6 8 -250" color ="#FFE87C" radius="40"></a-sphere>
+
+    <!--Cats-->
+    <a-entity>
+      <a-entity position="0 -1.9 -8" rotation="-90 -105 -90" scale="0.3 0.3 0.3" gltf-model="#cat" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <a-entity>
+      <a-entity position="7 -1.9 -9" rotation="-90 -80 -90" scale="0.1 0.1 0.1" gltf-model="#cat" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <a-entity>
+      <a-entity position="14 -1.9 -10" rotation="-90 -60 -90" scale="0.3 0.3 0.3" gltf-model="#cat" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+  </a-scene>
+</body>
+
+</html>
